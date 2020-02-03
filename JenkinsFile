@@ -30,7 +30,7 @@ node {
       }
    }
    stage('Deploy') {
-       sh 'curl -u jenkins:jenkins -T target/**.war "http://52.250.55.110:7070/manager/text/deploy?path=/devops&update=true"'
+       sh 'curl -u admin:password -T target/**.war "http://52.250.55.110:7070/manager/text/deploy?path=/devops&update=true"'
    }
    stage("Smoke Test"){
        sh "curl --retry-delay 10 --retry 5 http://52.250.55.110:7070/devops"
