@@ -1,9 +1,9 @@
 node {
    def mvnHome
-   stage('Prepare') {
-      git 'git@github.com:US1E007/devops.git'
-      mvnHome = tool 'maven'
-   }
+     stage('GitSCM')
+    {
+        git url: 'https://github.com/US1E007/devops.git'
+    }
    stage('Build') {
       if (isUnix()) {
          sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
