@@ -30,7 +30,7 @@ node {
       }
    }
    stage('Deploy') {
-       bat 'curl -u admin:7177e5ddb4fb4d9eb49f01d2c2ebaf4c -T target/**.war "localhost:7070/manager/text/deploy?path=/devops&update=true"'
+      deploy adapters: [tomcat9(credentialsId: 'TomcatManagerScript', path: '', url: 'http://localhost:7070')], contextPath: 'devops', war: '**/*.war'
    }
    stage("Smoke Test"){
        bat "curl --retry-delay 10 --retry 5 http://localhost:7070/devops"
