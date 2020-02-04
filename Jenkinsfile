@@ -30,7 +30,7 @@ node {
       }
    }
    stage('Deploy') {
-       sh 'curl -u jenkins:jenkins -T target/**.war "localhost:7070/manager/text/deploy?path=/devops&update=true"'
+       sh 'curl -u admin:7177e5ddb4fb4d9eb49f01d2c2ebaf4c -T target/**.war "localhost:7070/manager/text/deploy?path=/devops&update=true"'
    }
    stage("Smoke Test"){
        sh "curl --retry-delay 10 --retry 5 http://localhost:7070/devops"
