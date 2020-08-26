@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class WelcomeController {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+        String user = System.getenv("username");
 
 	@RequestMapping("/")
 	public String welcome(Model model) {
 		logger.info("Processing index request");
-		model.addAttribute("course", "DevOps");
+		model.addAttribute("course", user);
 		return "index";
 	}
 }
