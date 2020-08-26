@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class WelcomeController {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-        String user = System.getenv("username");
+        String user = System.getenv("ncxenv");
 
 	@RequestMapping("/")
 	public String welcome(Model model) {
